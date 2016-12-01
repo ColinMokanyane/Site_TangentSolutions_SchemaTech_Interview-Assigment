@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Frontend.master.cs" Inherits="MasterPages_Frontend" %>
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+   
+    <%--<style type="text/css">
+        .auto-style1 {
+            text-align: center;
+        }
+    </style>--%>
+   
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Path="~/Scripts/jquery-2.2.0.min.js" />
+            </Scripts>
+        </asp:ScriptManager>
+     <div id="PageWrapper">    
+         
+         <header><a href="/"></a></header>    
+         <nav>
+             <asp:Menu ID="Menu1" runat="server" CssClass="MainMenu" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False"></asp:Menu>            
+             <asp:TreeView ID="TreeView1" runat="server" CssClass="FirstLevelMenuItems" DataSourceID="SiteMapDataSource1"/>                
+             <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
+         </nav>    
+         <section id="MainContent">      
+             <asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath><br /><br />
+            <asp:ContentPlaceHolder ID="cpMainContent" runat="server">      
+        
+             </asp:ContentPlaceHolder>    
+         </section>    
+         <aside id="Sidebar"><Wrox:Banner ID="Banner1" runat="server" DispalyDirection="Vertical"/>
+         </aside>    
+         <footer class="auto-style1">
+             <asp:LoginName ID="LoginName1" runat="server" FormatString="You are logged in as {0}" />
+             <asp:LoginView ID="LoginView1" runat="server">
+                 <LoggedInTemplate>
+                     (<asp:LoginStatus ID="LoginStatus1" runat="server" />)
+                 </LoggedInTemplate>
+             </asp:LoginView>
+         </footer> 
+
+     </div> 
+        <asp:ContentPlaceHolder ID="cpClientScript" runat="server"></asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
